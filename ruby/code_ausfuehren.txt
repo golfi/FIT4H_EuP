@@ -10,3 +10,6 @@ Textdatei:
 	Der Code in der Datei wird ausgeführt:
 	cd VerzeichnisInDerDieCodeDateiLiegt
 	ruby start.rb
+
+Datei ausführen:
+	sh Dateiname
