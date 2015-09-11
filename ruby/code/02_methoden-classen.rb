@@ -42,22 +42,40 @@ class Player
 		@name = name
 		@health = health
  	end
+ 	
+ 	# h. fuegen Sie eine Instanzmethode blam und w00t hinzu, die den Wert fuer health umd 10 hochsetzt, 
+	#    bzw. reduziert und ausgibt: Tom got blamed, bzw. w00ted.
+
+	def blam
+		@health += 10
+	end
+	def w00ted
+		@health -= 10
+	end
+
+
+ 	# g. passen Sie die say_hello - Methode aus der vorherigen Übung zur Ausgabe ein, so dass 
+	#    puts player1.say_hello die Ausgabe ergibt
+	def say_hello
+		puts "ich bin #{@name} und mir geht es zu #{@health}% gut um #{Time.now.strftime("%H.%M")} Uhr."
+	end
+
  	# d. updaten Sie das Objekt player1 und lassen sich das objekt anzeigen
- 	def to_s
- 		puts "ich heiße #{@name} und mir geht es zu #{@health}% gut."
- 	end
+ 	 def to_s
+ 	 	puts "ich heiße #{@name} und mir geht es zu #{@health}% gut."
+ 	 end
 
 end
 # b. erstellen Sie ein Objekt player1 der Klasse
-obj_player1 = Player.new('Benjamin',50)
-puts obj_player1.to_s
+obj_player1 = Player.new('Benjamin',88)
+#obj_player1.say_hello
 # f. legen Sie eine neues Objekt player2 an, das nur den Namen als Parameter hat
-obj_player2 = Player.new('Benjamin')
-puts obj_player2.to_s
-
-# g. passen Sie die say_hello - Methode aus der vorherigen Übung zur Ausgabe ein, so dass 
-#    puts player1.say_hello die Ausgabe ergibt
-# h. fuegen Sie eine Instanzmethode blam und w00t hinzu, die den Wert fuer health umd 10 hochsetzt, 
-#    bzw. reduziert und ausgibt: Tom got blamed, bzw. w00ted.
+obj_player2 = Player.new('Tom',99)
+#obj_player2.to_s
+obj_player2.w00ted
+#obj_player2.say_hello
 # i. die say_hello - Methode soll aufgerufen werden, wenn nur das Objekt ausgegeben werden soll, 
 #    also puts players erfolgt.
+
+players = obj_player1.say_hello,obj_player2.say_hello
+players
