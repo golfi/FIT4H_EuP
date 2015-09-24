@@ -12,13 +12,13 @@ class Player
 		@health -= 10
 	end
 	def say_hello
-		puts "ich bin #{@name} und mir geht es zu #{@health}% gut um #{Time.now.strftime("%H.%M")} Uhr."
+		 "ich bin #{@name} und mir geht es zu #{@health}% gut um #{Time.now.strftime("%H.%M")} Uhr."
 	end
  	def to_s
- 	 	puts "ich heiße #{@name} und mir geht es zu #{@health}% gut."
+ 	 	"ich heiße #{@name} und mir geht es zu #{@health}% gut."
  	end
  	def attribute
- 		@erg=@health+@name.bytesize
+ 		@erg=@health+@name.bytesize #length
  	end
 
 end
@@ -35,9 +35,27 @@ obj_player2 = Player.new('Tom',99)
 # puts obj_player2.name = "Frieda"
 # puts obj_player2.attribute
 
-player_array=[obj_player1.to_s,obj_player2.say_hello]
-zaehler=0
-while zaehler <2
-	player_array[zaehler]
-	zaehler+=1
+player_array=[obj_player1.to_s,obj_player2.say_hello,obj_player2.say_hello,obj_player2.say_hello]
+puts player_array
+
+3.times do |i|
+	puts i.to_s
+	puts player_array[i]
+
 end
+
+# player_array.each do |var|
+# 	var
+# end
+
+
+# 2.times do |zaehler|
+# 		player_array[zaehler]
+# 	end
+
+
+# zaehler=0
+# while(zaehler < 2)
+# 	player_array[zaehler]
+# 	zaehler+=1
+# end

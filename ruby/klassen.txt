@@ -31,7 +31,7 @@ Eigenschaften:
 	bsp.:
 	Instanzvariable: @title
 	Eigenschaft: title
-	Reader-Methode: (Getter - Methode)
+	Reader-Methode: (Getter - Methode) (attr_reader)
 		def title
 			@title
 		end
@@ -39,7 +39,7 @@ Eigenschaften:
 		object1.title
 
 	Soll von außen auf die Eigenschaft title zugegriffen werden, dann ist ein WRITER nötig.
-	Writer-Methode:		(Setter - Methode)
+	Writer-Methode:		(Setter - Methode) (attr_writer)
 		def title=(parameter)
 			@title = parameter.capitalize
 		end

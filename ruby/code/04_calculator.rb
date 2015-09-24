@@ -5,6 +5,9 @@
 # Legen Sie ein Objekt an und wenden Sie die Methoden add und subtract an.
 
 class Rechner
+	
+	attr_accessor:zahl1, :zahl2
+
 	def initialize(pzahl1, pzahl2=0)
 		@zahl1 = pzahl1
 		@zahl2 = pzahl2
@@ -23,4 +26,6 @@ end
 
 rechnen1=Rechner.new(5,6)
 rechnen1.add
+rechnen1.sub
+rechnen1.zahl1 =10
 rechnen1.sub

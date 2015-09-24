@@ -1,3 +1,25 @@
+class Playlist
+	def initialize(name)
+		@name = name
+		@movies = []
+	end
+	def add_movie(movie)
+		@movies << movie
+	end
+	def play
+		puts "#{@name}'s PLAYLIST"
+		@movies.each do |movie|
+			puts movie
+		end		
+	end
+	def to_s
+	 	@movies.size.to_s
+	end
+end
+
+
+
+
 class Movie
 	attr_accessor :title
 	def initialize(ptitle, prank=0)
@@ -16,16 +38,24 @@ class Movie
 	end
 end
 
+
+
 movie1 = Movie.new('NinjaTurtles',4)
 movie2 = Movie.new('SWAT',5)
 movie3 = Movie.new('8mm',10)
 
-movies = [movie1, movie2, movie3]
-movies.each do |movie|
-	movie.thumbs_up
-	movie.thumbs_down
-	puts movie
-end
+pl = Playlist.new("Benni")
+pl.add_movie(movie1)
+pl.add_movie(movie2)
+pl.play
+
+
+# movies = [movie1, movie2, movie3]
+# movies.each do |movie|
+# 	movie.thumbs_up
+# 	movie.thumbs_down
+# 	puts movie
+# end
 
 
 # class Movie
