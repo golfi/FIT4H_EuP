@@ -23,12 +23,17 @@ class Player
  	end
 	def blam
 		@health += 10
+		puts "#{@name} wurde geblamt!"
 	end
 	def w00ted
 		@health -= 10
+		puts "#{@name} wurde gew00ted!"
+	end
+	def score
+		@health+@name.length		
 	end
  	def to_s
- 	 	"Der Spieler heißt #{@name} und seine Lebensanzeige beträgt #{@health}% ."
+ 	 	"Der Spieler heißt #{@name} und seine Lebensanzeige beträgt #{@health}% mit einem Score von #{score}."
  	end
 end
 
@@ -39,10 +44,18 @@ obj_player4 = Player.new('Paul',50)
 
 ga = Game.new("Call of Duty")
 
-
 ga.add_player(obj_player1)
-obj_player2.blam
 ga.add_player(obj_player2)
 ga.add_player(obj_player3)
 ga.add_player(obj_player4)
-ga.play
+#ga.play
+
+spieler = [obj_player1,obj_player2,obj_player3,obj_player4]
+
+spieler.each do |param|
+	puts param
+	param.blam
+	param.w00ted
+	param.w00ted
+	puts param
+end
