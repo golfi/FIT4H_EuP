@@ -1,41 +1,5 @@
-class Game
-	def initialize(title)
-		@title = title
-		@players = []		
-	end
-	def add_player(player)
-		@players << player
-	end
-	def play
-		puts "Es sind #{@players.count} Spieler online in #{@title}:"
-		@players.each do |player|
-			puts player
-		end
-	end
-end
-
-class Player
-	attr_accessor:health
-	attr_accessor:name 
-	def initialize(name,health=100)
-		@name = name
-		@health = health
- 	end
-	def blam
-		@health += 10
-		puts "#{@name} wurde geblamt!"
-	end
-	def w00ted
-		@health -= 10
-		puts "#{@name} wurde gew00ted!"
-	end
-	def score
-		@health+@name.length		
-	end
- 	def to_s
- 	 	"Der Spieler heißt #{@name} und seine Lebensanzeige beträgt #{@health}% mit einem Score von #{score}."
- 	end
-end
+require_relative 'game'
+require_relative 'player'
 
 obj_player1 = Player.new('Benjamin',80)
 obj_player2 = Player.new('Tom',90)
