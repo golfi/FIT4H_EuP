@@ -27,7 +27,7 @@ class Kunde
 	end
 
 	def getter
-		puts @name + ", " + @adresse +"."
+		@name.split.map(&:capitalize)*' ' + ", " + @adresse + "."
 	end
 
 end
