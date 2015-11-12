@@ -1,0 +1,10 @@
+<h1>Movies</h1>
+
+<%= "<h2>listing generated at:  #{Time.now}</h2>".html_safe %>
+<p>
+	<ul>
+		<% @movies.each do |movie| %>
+			<li><%= movie %></li>
+		<% end %>
+	</ul>
+</p>
