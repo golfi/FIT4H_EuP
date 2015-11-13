@@ -1,10 +1,22 @@
 <h1>Movies</h1>
-
-<%= "<h2>listing generated at:  #{Time.now}</h2>".html_safe %>
-<p>
-	<ul>
-		<% @movies.each do |movie| %>
-			<li><%= movie %></li>
-		<% end %>
-	</ul>
+<p>Zeige folgende <%= @movies.size %> Filme an:
+	<table>
+			<tr>
+				<th>Titel</th>
+				<th>Rating</th>
+				<th>Filmkosten</th>
+				<th>Beschreibung</th>
+				<th>Released am</th>
+			</tr>
+			<% @movies.each do |movie| %>
+			<tr>
+				<td><%= movie.title %></td>
+				<td><%= movie.rating %></td>
+				<td><%= number_to_currency(movie.total_gross, unit: "Kosten: ") %></td>
+				<td><%= movie.description %></td>
+				<td><%= movie.released_on %></td>
+			</tr>	
+			<% end %>
+	</table>
 </p>
+	
