@@ -1,0 +1,9 @@
+<h1><%= @movie.title %></h1>
+<p><%= @movie.description %></p>
+<h3>Wann</h3>
+<p><%= @movie.released_on %></p>
+<h3>Rating</h3>
+<p><%= @movie.rating %></p>
+<h3>Preis</h3>
+<p><%= format_price(@movie) %></p>
+<p><%= link_to "Back", flix_index_path %></p>

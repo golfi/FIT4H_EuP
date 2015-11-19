@@ -1,20 +1,22 @@
 <h1>Movies</h1>
 <p>Zeige folgende <%= @movies.size %> Filme an:
-	<table>
+	<table width="100%">
 			<tr>
 				<th>Titel</th>
 				<th>Rating</th>
 				<th>Filmkosten</th>
 				<th>Beschreibung</th>
 				<th>Released am</th>
+				<th>Show</th>
 			</tr>
 			<% @movies.each do |movie| %>
 			<tr>
 				<td><%= movie.title %></td>
 				<td><%= movie.rating %></td>
-				<td><%= number_to_currency(movie.total_gross, unit: "Kosten: ") %></td>
-				<td><%= movie.description %></td>
-				<td><%= movie.released_on %></td>
+				<td><%= format_price(movie) %></td>
+				<td><%= truncate(movie.description, length: 10, separator: ' ') %></td>
+				<td><%= time_ago_in_words(movie.released_on) unless movie.released_on.blank? %></td>
+				<td><%= link_to "Show", flix_path(movie.id) %></td>
 			</tr>	
 			<% end %>
 	</table>
