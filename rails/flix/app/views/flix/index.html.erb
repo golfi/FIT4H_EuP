@@ -1,5 +1,6 @@
 <h1>Movies</h1>
-<p>Zeige folgende <%= @movies.size %> Filme an:
+<p>
+	Es <%= @movies.count == 1 ? " ist " : " sind " %> <%= "#{pluralize(@movies.count, "Movie")}" %> vorhanden.
 	<table width="100%">
 			<tr>
 				<th>Titel</th>
@@ -13,7 +14,7 @@
 			<tr>
 				<td><%= movie.title %></td>
 				<td><%= movie.rating %></td>
-				<td><%= format_price(movie) %></td>
+				<td><%= format_total_gross(movie) %></td>
 				<td><%= truncate(movie.description, length: 10, separator: ' ') %></td>
 				<td><%= time_ago_in_words(movie.released_on) unless movie.released_on.blank? %></td>
 				<td><%= link_to "Show", flix_path(movie.id) %></td>

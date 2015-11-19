@@ -1,5 +1,5 @@
 class Movie < ActiveRecord::Base
-	def free?
-		self.total_gross.blank? || self.total_gross.zero?
+	def flop?
+		self.total_gross.blank? || self.total_gross < 1000
 	end
 end
