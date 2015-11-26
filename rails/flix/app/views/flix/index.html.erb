@@ -1,6 +1,7 @@
 <h1>Movies</h1>
 <p>
 	Es <%= @movies.count == 1 ? " ist " : " sind " %> <%= "#{pluralize(@movies.count, "Movie")}" %> vorhanden.
+	<p><%= link_to "Neuen Film anlegen", new_flix_path %></p>
 	<table width="100%">
 			<tr>
 				<th>Titel</th>
@@ -9,6 +10,8 @@
 				<th>Beschreibung</th>
 				<th>Released am</th>
 				<th>Show</th>
+				<th>Edit</th>
+				<th>Del</th>
 			</tr>
 			<% @movies.each do |movie| %>
 			<tr>
@@ -18,6 +21,8 @@
 				<td><%= truncate(movie.description, length: 10, separator: ' ') %></td>
 				<td><%= time_ago_in_words(movie.released_on) unless movie.released_on.blank? %></td>
 				<td><%= link_to "Show", flix_path(movie.id) %></td>
+				<td><%= link_to "Edit", edit_flix_path(movie.id) %></td>
+				<td><%= link_to "Delete", flix_path(movie.id), method: :delete, data: {confirm: "Sicher???"} %></td>
 			</tr>	
 			<% end %>
 	</table>
