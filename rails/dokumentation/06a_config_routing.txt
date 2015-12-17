@@ -18,3 +18,8 @@ Beispiel:	event_path(5)
 Mit dem Consolerbefehl
 	rake routes
 kann man sich alle Routen anzeigen lassen.
+
+
+localhost:3000/rails/infos/routes
+
+https://pragmaticstudio.com/courses/rails
