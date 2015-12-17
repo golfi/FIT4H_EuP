@@ -14,8 +14,12 @@ class EventsController < ApplicationController
 
 	def update
 		@event = Event.find(params[:id])
-		@event.update(event_params)
-		redirect_to event_path(@event.id)
+		if @event.update(event_params)
+			flash[:notice] = "gut gespeichert ist halb gewonnen."
+			redirect_to event_path(@event.id)
+		else
+			render "edit"
+		end
 	end
 
 	def new
@@ -24,8 +28,12 @@ class EventsController < ApplicationController
 
 	def create
 		@event = Event.new(event_params)
-		@event.save
-		redirect_to event_path(@event.id)		
+		if @event.save
+			flash[:notice] = "gut gespeichert ist halb gewonnen."
+			redirect_to event_path(@event.id)
+		else
+			render "new"
+		end
 	end
 
 	def destroy
@@ -34,9 +42,13 @@ class EventsController < ApplicationController
 		redirect_to events_path		
 	end
 
+	def daten
+		@events  = Event.all
+	end
+
 	private
 		def event_params
-			permitted_params = params.require(:event).permit(:name, :description, :location, :price, :start_at)
+			permitted_params = params.require(:event).permit(:name, :description, :location, :price, :start_at, :image_file, :capacity)
 		end
 
 end

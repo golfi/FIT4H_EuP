@@ -1,7 +1,7 @@
 class FlixController < ApplicationController
 
 	def index													###########################
-		@movies = Movie.all
+		@movies = Movie.upcoming
 	end
 
 	def show
@@ -14,8 +14,12 @@ class FlixController < ApplicationController
 
 	def update
 		@movie = Movie.find(params[:id])
-		@movie.update(movie_params)
-		redirect_to flix_path(@movie.id)
+		if @movie.update(movie_params)
+			flash[:notice] = "ist geupdated!"
+			redirect_to flix_path(@movie.id)
+		else
+			render 'edit'
+		end
 	end
 
 	def new
@@ -24,18 +28,27 @@ class FlixController < ApplicationController
 
 	def create
 		@movie = Movie.new(movie_params)
-		@movie.save
-		redirect_to flix_path(@movie.id)		
+		if @movie.save
+			flash[:notice] = "neu angelegt!"
+			redirect_to flix_path(@movie.id)
+		else
+			render 'new'
+		end	
 	end
 
 	def destroy
 		@movie = Movie.find(params[:id])
 		@movie.destroy
+		flash[:notice] = "eintrag gelöscht!"
 		redirect_to flix_index_path		
+	end
+
+	def daten
+		@movies  = Movie.all
 	end
 
 	private
 		def movie_params
-			permitted_params = params.require(:movie).permit(:title, :rating, :total_gross, :description, :released_on)
+			permitted_params = params.require(:movie).permit(:title, :rating, :total_gross, :description, :released_on, :poster_image_file, :cast, :director, :duration)
 		end
 end

@@ -1,5 +1,15 @@
-<h1>Movie: <%= @movie.title %> bearbeiten</h1>
+<h1>Der Film <%= @movie.title %> wird bearbeiten!</h1>
 <%= form_for(@movie, as: :movie, method: :patch, url: flix_path(@movie)) do |f| %>
+	<% if @movie.errors.any? %>
+		<div class="panel">
+			<ul>
+				<% @movie.errors.full_messages.each do |message| %>
+					<li><%= message %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
+
 
 	<div class="row">
 		<div class=" medium-2 columns">
@@ -41,10 +51,43 @@
 			<%= f.datetime_select :released_on %>
 		</div>
 	</div>
+
+	<div class="row">
+		<div class=" medium-2 columns">
+			<%= f.label :poster_image_file %>
+		</div>
+		<div class=" medium-10 columns">
+			<%= f.text_field :poster_image_file, placeholder:"gif,jpg dateiname" %>
+		</div>
+	</div>
+	<div class="row">
+		<div class=" medium-2 columns">
+			<%= f.label :cast %>
+		</div>
+		<div class=" medium-10 columns">
+			<%= f.text_area :cast %>
+		</div>
+	</div>
+	<div class="row">
+		<div class=" medium-2 columns">
+			<%= f.label :director %>
+		</div>
+		<div class=" medium-10 columns">
+			<%= f.text_field :director %>
+		</div>
+	</div>
+	<div class="row">
+		<div class=" medium-2 columns">
+			<%= f.label :duration %>
+		</div>
+		<div class=" medium-10 columns">
+			<%= f.time_select :duration %>
+		</div>
+	</div>
+
 	<div class="row">
 		<div class="medium-2 columns"><%= f.submit %></div>
 		<div class="medium-10 columns>&nbsp;"></div>
 	</div>
-
 
 <% end %>

@@ -1,6 +1,15 @@
 Rails.application.routes.draw do
+  
   root"events#index"
-  resources :events
+  resources :events do
+    resources :registrations
+    collection do     #für alle datensätze anwenden (events)
+      get "daten"
+    end
+    member do         #für einen datensatz verwenden (event(id))
+
+    end
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

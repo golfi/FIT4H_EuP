@@ -1,9 +1,71 @@
 <h1><%= @movie.title %></h1>
-<p><%= @movie.description %></p>
-<h3>Wann</h3>
-<p><%= @movie.released_on %></p>
-<h3>Rating</h3>
-<p><%= @movie.rating %></p>
-<h3>Preis</h3>
-<p><%= format_total_gross(@movie) %></p>
-<p><%= link_to "Back", flix_index_path %></p>
+<div class="panel">
+	<%= flash[:notice]%>
+</div>
+<div class="panel">
+	<div class="row">
+		<div class="medium-3 columns">
+			<%= poster_image_for(@movie) %>
+		</div>
+		<div class="medium-9 columns">
+			<%= @movie.description %>
+		</div>
+	</div>
+</div>
+
+<br>
+<div class="panel">
+	<div class="row">
+		<div class="medium-2 columns">
+			Wann:
+		</div>
+		<div class="medium-10 columns">
+			<%= @movie.released_on %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="medium-2 columns">
+			Rating:
+		</div>
+		<div class="medium-10 columns">
+			<%= @movie.rating %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="medium-2 columns">
+			Preis:
+		</div>
+		<div class="medium-10 columns">
+			<%= format_total_gross(@movie) %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="medium-2 columns">
+			Besetzung:
+		</div>
+		<div class="medium-10 columns">
+			<%= @movie.cast %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="medium-2 columns">
+			Regisseur:
+		</div>
+		<div class="medium-10 columns">
+			<%= @movie.director %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="medium-2 columns">
+			Spielfilmlänge:
+		</div>
+		<div class="medium-10 columns">
+			<%= @movie.duration %>
+		</div>
+	</div>
+</div>
+<p>
+	<%= link_to "Back", flix_index_path %><br>
+	<%= link_to "Reviews", flix_reviews_path(@movie.id) %>
+
+</p>

@@ -1,7 +1,13 @@
 <h1>Movies</h1>
+<p><%= flash[:notice] %></p>
 <p>
 	Es <%= @movies.count == 1 ? " ist " : " sind " %> <%= "#{pluralize(@movies.count, "Movie")}" %> vorhanden.
+	<br>
+	<br>
+	Sie wollen einen neuen Film anlegen? Kein Problem! Klicken Sie auf den unten stehenden Link.
 	<p><%= link_to "Neuen Film anlegen", new_flix_path %></p>
+	Hier sehen Sie alle Filme die demnächst erscheinen!
+	<br><br>
 	<table width="100%">
 			<tr>
 				<th>Titel</th>
@@ -18,7 +24,10 @@
 				<td><%= movie.title %></td>
 				<td><%= movie.rating %></td>
 				<td><%= format_total_gross(movie) %></td>
-				<td><%= truncate(movie.description, length: 10, separator: ' ') %></td>
+				<td>
+					<%= truncate(movie.description, length: 10, separator: ' ', omission: "") %>
+					<%= link_to "...", flix_path(movie.id) %>
+				</td>
 				<td><%= time_ago_in_words(movie.released_on) unless movie.released_on.blank? %></td>
 				<td><%= link_to "Show", flix_path(movie.id) %></td>
 				<td><%= link_to "Edit", edit_flix_path(movie.id) %></td>
@@ -26,5 +35,7 @@
 			</tr>	
 			<% end %>
 	</table>
+	Wenn Sie alle Datenbankeinträge sehen wollen, klicken Sie auf den nachstehenden Link!
+	<br><br><p><%= link_to "Alle Datenbankeinträge", daten_flix_index_path, type: "button", class: "button success tiny" %></p>
 </p>
 	

@@ -1,0 +1,23 @@
+<p>
+	Das wird eine übersicht meiner Bücher!
+</p>
+<p>
+	In meiner Datenbank <%= @books.count == 1 ? "ist" : "sind" %> <%= %>
+</p>
+
+<table border="1">
+	<tr>
+		<th>Name</th>
+		<th>Beschreibung</th>
+		<th>Autor</th>
+		<th>Einkaufspreis</th>
+	</tr>
+	<% @books.each do |book| %>
+	<tr>
+		<td><%= book.title%></td>
+		<td><%= book.description%></td>
+		<td><%= book.autor%></td>
+		<td><%= book.cost%></td>
+	</tr>
+	<% end %>
+</table>
