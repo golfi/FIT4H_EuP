@@ -1,6 +1,18 @@
 .flash {
-	color: darkgreen;
 	text-align: center;
-	background-color: orange;
 	font-size: 1.4em;
+}
+
+.big-btn{
+	width: 250px;
+}
+
+.notice {
+	color: orange;
+	background: darkgreen;
+}
+
+.alert {
+	color: yellow;
+	background: red;
 }
