@@ -7,10 +7,12 @@
     <tr>
       <th>Title</th>
       <th>Description</th>
-      <th>Text</th>
       <th>Start date</th>
       <th>End date</th>
       <th>Project</th>
+      <th>Anzeigen</th>
+      <th>Bearbeiten</th>
+      <th>Löschen</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -20,13 +22,12 @@
       <tr>
         <td><%= task.title %></td>
         <td><%= task.description %></td>
-        <td><%= task.text %></td>
         <td><%= task.start_date %></td>
         <td><%= task.end_date %></td>
         <td><%= task.project_id %></td>
-        <td><%= link_to 'Show', task %></td>
-        <td><%= link_to 'Edit', edit_task_path(task) %></td>
-        <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to "Anzeigen", project_task_path(task.project.id,task.id)%></td>
+        <td><%= link_to "Bearbeiten", edit_project_task_path(task.project.id,task.id) %></td>
+        <td><%= link_to "Löschen", project_tasks_path(task.project.id,task.id), method: :delete, data: {confirm: "Sicher???"} %></td>
       </tr>
     <% end %>
   </tbody>
@@ -34,4 +35,8 @@
 
 <br>
 
-<%= link_to 'New Task', new_task_path %>
+
+
+<ul class="button-group even-3">
+  <li><%= link_to 'New Task', new_project_task_path, class: "button" %></li>
+</ul>

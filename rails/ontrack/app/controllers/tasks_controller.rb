@@ -1,10 +1,12 @@
 class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
+  before_action :set_project
 
   # GET /tasks
   # GET /tasks.json
   def index
-    @tasks = Task.all
+    #@tasks = Task.where(project_id: params[:project_id])
+    @tasks = @project.tasks
   end
 
   # GET /tasks/1
@@ -67,8 +69,12 @@ class TasksController < ApplicationController
       @task = Task.find(params[:id])
     end
 
+    def set_project
+      @project = Project.find(params[:project_id])
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def task_params
-      params.require(:task).permit(:title, :description, :text, :start_date, :end_date, :project_id)
+      params.require(:task).permit(:title, :description, :start_date, :end_date, :project_id)
     end
 end
