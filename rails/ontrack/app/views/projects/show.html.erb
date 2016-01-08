@@ -1,0 +1,36 @@
+<h1><%= @project.title %></h1>
+
+<div class="panel">
+	
+	<div class="row">
+		<div class="medium-2 columns">
+			Titel:
+		</div>
+		<div class="medium-10 columns">
+			<%= @project.title %>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="medium-2 columns">
+			Wann:
+		</div>
+		<div class="medium-10 columns">
+			<%= @project.start_date %>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="medium-2 columns">
+			Beschreibung:
+		</div>
+		<div class="medium-10 columns">
+			<%= @project.description %>
+		</div>
+	</div>
+
+</div>
+
+<ul class="button-group even-3">
+	<li><%= link_to "Back", projects_path, class: "button" %></li>
+</ul>

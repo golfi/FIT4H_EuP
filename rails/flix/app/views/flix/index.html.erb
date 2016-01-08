@@ -1,5 +1,4 @@
 <h1>Movies</h1>
-<p><%= flash[:notice] %></p>
 <p>
 	Es <%= @movies.count == 1 ? " ist " : " sind " %> <%= "#{pluralize(@movies.count, "Movie")}" %> vorhanden.
 	<br>

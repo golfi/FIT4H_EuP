@@ -39,7 +39,6 @@ class FlixController < ApplicationController
 	def destroy
 		@movie = Movie.find(params[:id])
 		@movie.destroy
-		flash[:notice] = "eintrag gelöscht!"
 		redirect_to flix_index_path		
 	end
 

@@ -1,0 +1,23 @@
+<h1>Hier lasse ich alle Projekte anzeigen! </h1>
+
+<table>
+	<tr>
+		<th>Titel</th>
+		<th>Beschreibung</th>
+		<th>Startdatum</th>
+		<th>Anzeigen</th>
+		<th>Bearbeiten</th>
+		<th>Löschen</th>
+	</tr>
+	<% @projects.each do |projects| %>
+	<tr>
+		<td><%= projects.title %></td>
+		<td><%= projects.description %></td>
+		<td><%= projects.start_date %></td>
+		<td><%= link_to "Anzeigen", project_path(projects.id)%></td>
+		<td><%= link_to "Bearbeiten", edit_project_path(projects.id) %></td>
+		<td><%= link_to "Löschen", project_path(projects.id), method: :delete, data: {confirm: "Sicher???"} %></td>
+	</tr>
+	<% end %>
+</table>
+

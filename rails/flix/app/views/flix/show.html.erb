@@ -1,7 +1,5 @@
 <h1><%= @movie.title %></h1>
-<div class="panel">
-	<%= flash[:notice]%>
-</div>
+
 <div class="panel">
 	<div class="row">
 		<div class="medium-3 columns">
@@ -64,8 +62,9 @@
 		</div>
 	</div>
 </div>
-<p>
-	<%= link_to "Back", flix_index_path %><br>
-	<%= link_to "Reviews", flix_reviews_path(@movie.id) %>
+<ul class="button-group even-3">
+	<li><%= link_to "Back", flix_index_path, class: "button" %></li>
+	<li><%= link_to "Bewertungen", flix_reviews_path(@movie.id), class: "button" %></li>
+	<li><%= link_to "neu Bewertung", new_flix_review_path(@movie.id), class: "button" %></li>
 
-</p>
+</ul>

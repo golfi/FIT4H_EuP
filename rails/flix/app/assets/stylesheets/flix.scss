@@ -1,3 +1,18 @@
-// Place all the styles related to the flix controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.flash {
+	text-align: center;
+	font-size: 1.4em;
+}
+
+.big-btn{
+	width: 250px;
+}
+
+.notice {
+	color: orange;
+	background: darkgreen;
+}
+
+.alert {
+	color: yellow;
+	background: red;
+}

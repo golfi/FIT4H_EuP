@@ -7,7 +7,6 @@ Rails.application.routes.draw do
       get "daten"
     end
     member do         #für einen datensatz verwenden (event(id))
-
     end
   end
   # The priority is based upon order of creation: first created -> highest priority.

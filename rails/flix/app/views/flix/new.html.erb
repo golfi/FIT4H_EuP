@@ -1,15 +1,6 @@
 <h1>Neuen Film anlegen</h1>
 <%= form_for(@movie, as: :movie, method: :post, url: flix_index_path) do |f| %>
-	<% if @movie.errors.any? %>
-		<div class="panel">
-			<ul>
-				<% @movie.errors.full_messages.each do |message| %>
-					<li><%= message %></li>
-				<% end %>
-			</ul>
-		</div>
-	<% end %>
-
+	<%= render "shared/errors", obj_errors: @movie %>
 
 	<div class="row">
 		<div class=" medium-2 columns">
