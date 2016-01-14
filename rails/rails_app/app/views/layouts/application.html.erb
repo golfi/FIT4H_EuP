@@ -12,11 +12,11 @@
   </head>
 
   <body>
-    <% if flash.present? %>
-      <% flash.each do |key, value| %>
-        <%= content_tag(:div, value, class: "panel flash #{key}")%>
-      <% end %>
-    <% end %>
+
+    <%= render "layouts/navigation" %>
+    <%= render "layouts/flash_messages" %>
+
+    
 
     <%= yield %>
     <%= javascript_include_tag "application" %>

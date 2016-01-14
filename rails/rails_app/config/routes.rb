@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   
-  resources :users
   root"events#index"
+  
+  get 'signup' => "users#new"
+  resources :users
+  
   resources :events do
     resources :registrations
     collection do     #für alle datensätze anwenden (events)

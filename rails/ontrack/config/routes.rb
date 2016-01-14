@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   
-  resources :users
   root "projects#index"
+
+  get 'signup' => "users#new"
+  resources :users
+ 
   get 'test' => 'projects#test'
   resources :projects do
     resources :tasks
