@@ -9,7 +9,6 @@
       <th>Description</th>
       <th>Start date</th>
       <th>End date</th>
-      <th>Project</th>
       <th>Anzeigen</th>
       <th>Bearbeiten</th>
       <th>Löschen</th>
@@ -24,10 +23,9 @@
         <td><%= task.description %></td>
         <td><%= task.start_date %></td>
         <td><%= task.end_date %></td>
-        <td><%= task.project_id %></td>
         <td><%= link_to "Anzeigen", project_task_path(task.project.id,task.id)%></td>
         <td><%= link_to "Bearbeiten", edit_project_task_path(task.project.id,task.id) %></td>
-        <td><%= link_to "Löschen", project_tasks_path(task.project.id,task.id), method: :delete, data: {confirm: "Sicher???"} %></td>
+        <td><%= link_to "Löschen", project_task_path(task.project.id,task.id), method: :delete, data: {confirm: "Sicher???"} %></td>
       </tr>
     <% end %>
   </tbody>

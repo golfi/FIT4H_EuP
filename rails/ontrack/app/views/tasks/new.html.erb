@@ -2,4 +2,7 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Back', tasks_path %>
+<ul class="button-group even-3">
+  <li><%= link_to "Zurück", project_tasks_path(@project.id), class: "button" %></li>
+</ul>
+
