@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :users
   root "projects#index"
   get 'test' => 'projects#test'
   resources :projects do
