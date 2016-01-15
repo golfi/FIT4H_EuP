@@ -3,8 +3,11 @@ Rails.application.routes.draw do
   root "projects#index"
 
   get 'signup' => "users#new"
+  get 'logout' => "sessions#destroy"
+  get 'signin' => "sessions#new"
+
+  resources :sessions
   resources :users
- 
   get 'test' => 'projects#test'
   resources :projects do
     resources :tasks
