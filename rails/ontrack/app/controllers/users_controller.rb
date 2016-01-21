@@ -74,7 +74,7 @@ class UsersController < ApplicationController
       params.require(:user).permit(:name, :email, :password, :password_confirmation)
     end
 
-    def require_correct_user
+    def require_correct_user   
       @user = User.find(params[:id])
       unless @user == current_user
         redirect_to root_path, alert: "Finger weg!"
