@@ -11,6 +11,11 @@ Damit die Tabelle <events> in der Datenbank tatsächlich erstellt wird muss noch
 ausgeführt werden.
 Nach dem Durchführen des migrate-Befehls sind die Daten der neuen Tabelle in der Datei: db/schema.rb einsehbar.
 
+rake db:roolback
+rake db:migrate VERSION=001
+
+rake db:seeds
+rake db:setup #löscht alles und legt mit der seed alles neu an
 
 BEFEHLE:
 Anlegen eines Datensatzes:
