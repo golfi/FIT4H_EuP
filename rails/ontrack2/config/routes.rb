@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   
   root "projects#index"
 
-  post 'login' => 'sessions#new'
+  get 'login' => 'sessions#new'
+  get 'logout' => 'sessions#destroy'
+  get 'signin' => 'users#new'
 
   resources :sessions 
 
