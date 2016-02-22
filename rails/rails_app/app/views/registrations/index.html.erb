@@ -1,20 +1,24 @@
-<h1>Alle Registrierungen</h1>
+<h1>Alle Registrierungen für <%= @event.name %></h1>
 
 <table>
 	<tr>
 		<th>Name</th>
 		<th>Email</th>
 		<th>Über</th>
-		<th>Event</th>
+		<th>Del</th>
 	</tr>
 	<% @registrations.each do |registration| %>
 	<tr>
-		<td><%= registration.name %></td>
-		<td><%= registration.email %></td>
+		<td><%= registration.user.name %></td>
+		<td><%= registration.user.email %></td>
 		<td><%= registration.how_heard %></td>
-		<td><%= registration.event_id %></td>
+		<td><%= link_to "<i class='fi-trash icon-red'></i>".html_safe, event_registration_path(@event.id,registration.id), method: :delete, data: {confirm: "Löschen?"}%> </td>
 	</tr>
 	<% end %>
 </table>
 
-<p><%= link_to "Back", events_path %><br></p>
+<ul class="button-group even-3">
+	<li><%= link_to "User " "<i class='fi-torso icon-blue'></i>".html_safe, user_path(@current_user.id), class: "button" %></li>
+	<li><%= link_to "Back ""<i class='fi-arrow-left icon-blue'></i>".html_safe, events_path, class: "button" %></li>
+	<li><%= link_to "neu Registrierung ""<i class='fi-plus icon-green'></i>".html_safe, new_event_registration_path(@event.id), class: "button" %></li>
+</ul>
