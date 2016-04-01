@@ -1,0 +1,13 @@
+
+<table class="table1">
+  <tbody>
+    <% @products.each do |product| %>
+      <tr class="tr1">
+        <td class="td1"><%= image_tag product.image_url, size: "125" %></td>
+        <td class="td1"><b><%= product.title %></b><br>
+            <%= product.description %><br><br><br><%= format_price(product) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
